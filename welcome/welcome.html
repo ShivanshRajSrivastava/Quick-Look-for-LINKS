@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Welcome to ‘Quick Look’ for LINKS</title>
+  <link rel="icon" href="../icons/icon32.png">
+  <link rel="stylesheet" href="../shared/ui.css">
+  <link rel="stylesheet" href="welcome.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <img src="../icons/icon256.png" alt="" width="104" height="104" class="hero-icon">
+      <h1>‘Quick Look’ for <span class="caps">LINKS</span></h1>
+      <p class="tag">Quick Look for every link on the web.</p>
+      <div class="demo-keys" aria-hidden="true">
+        <span class="step"><span class="cursor-link">a link</span><span class="cap">hover</span></span>
+        <span class="plus">+</span>
+        <span class="step"><kbd class="space" id="hero-key">Space</kbd><span class="cap">preview</span></span>
+        <span class="plus">then</span>
+        <span class="step"><span class="arrows"><kbd>←</kbd><kbd>→</kbd></span><span class="cap">flip through</span></span>
+      </div>
+    </header>
+
+    <section class="card" id="setup">
+      <div class="step-label"><span class="num">1</span> Choose where it works</div>
+      <div class="choices">
+        <button class="choice" id="choose-all">
+          <span class="choice-title">On every website <span class="pill info">Recommended</span></span>
+          <span class="choice-text">Works everywhere right away. Chrome will say it can “read and change all your data on all websites”. That’s what fetching a preview of any link requires. It only fetches when you press Space, and never sends anything anywhere else.</span>
+        </button>
+        <button class="choice" id="choose-sites">
+          <span class="choice-title">Only sites I approve</span>
+          <span class="choice-text">More private, a bit more friction. You turn it on per site from the toolbar button, and approve each new site a preview loads from the first time.</span>
+        </button>
+      </div>
+      <div class="setup-status" id="setup-status"></div>
+    </section>
+
+    <section class="card" id="try">
+      <div class="step-label"><span class="num">2</span> Try it right here</div>
+      <p class="muted">Hover any link below and press <kbd class="inline-key">Space</kbd>. With a preview open, use <kbd>←</kbd> <kbd>→</kbd> to move through the rest.</p>
+      <ul class="try-list">
+        <li><a href="https://support.apple.com/guide/mac-help/view-and-edit-files-with-quick-look-mh14119/mac"><b>Apple Support: Quick Look on the Mac</b><span>Apple blocks embedding; you still see the real page. Press R for Reader</span></a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Quick_Look"><b>Wikipedia: Quick Look</b><span>The live page, loaded logged out</span></a></li>
+        <li><a href="https://learn.microsoft.com/en-us/windows/powertoys/peek"><b>Microsoft Learn: PowerToys Peek</b><span>Windows’ answer to Quick Look, on Ctrl + Space</span></a></li>
+        <li><a href="https://github.com/mozilla/readability"><b>GitHub: mozilla/readability</b><span>The library behind the Reader view</span></a></li>
+        <li><a href="https://www.youtube.com/watch?v=aqz-KE-bpKQ"><b>YouTube: Big Buck Bunny</b><span>Plays through YouTube’s official privacy-enhanced embed</span></a></li>
+        <li><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/960px-Tour_Eiffel_Wikimedia_Commons.jpg"><b>An image link</b><span>Shown full size, with its dimensions</span></a></li>
+        <li><a href="https://help.apple.com/pdf/watch/9/en_US/apple-watch-user-guide-watchos9.pdf"><b>Apple Watch User Guide (PDF, 21 MB)</b><span>Opens in your browser’s own PDF viewer</span></a></li>
+        <li><a href="https://news.ycombinator.com/"><b>Hacker News</b><span>Press R to cycle Live, Reader and Summary</span></a></li>
+        <li><a href="https://example.com/account/logout"><b>Log out</b><span>A sign-out link: it refuses to load it</span></a></li>
+      </ul>
+    </section>
+
+    <section class="card grid2">
+      <div>
+        <div class="step-label plain">Keys</div>
+        <dl class="keys" id="keys"></dl>
+      </div>
+      <div>
+        <div class="step-label plain">Privacy</div>
+        <ul class="facts">
+          <li><b>Nothing loads on hover.</b> Only when you press Space.</li>
+          <li><b>Logged out by default.</b> A preview can’t act on your accounts.</li>
+          <li><b>Sealed off.</b> Previewed pages can’t touch the page you’re on, or redirect your tab.</li>
+          <li><b>Careful with risky links.</b> Sign-out, unsubscribe and delete links aren’t loaded.</li>
+          <li><b>No servers, no analytics.</b> Nothing leaves your computer except the request to the link you chose.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <a href="../options/options.html">Settings</a>
+      <span class="muted">Space keeps its normal job in text boxes, editors, players and games. On sites like YouTube and Google Docs, where Space is taken, use <kbd>⇧</kbd> <kbd>Space</kbd>.</span>
+    </footer>
+  </main>
+
+  <script src="../shared/settings.js"></script>
+  <script src="../shared/links.js"></script>
+  <script src="../content/panel.css.js"></script>
+  <script src="../content/content.js"></script>
+  <script src="welcome.js"></script>
+</body>
+</html>
