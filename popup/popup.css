@@ -1,0 +1,20 @@
+body { width: 340px; background: var(--bg); }
+.top { display: flex; align-items: center; gap: 10px; padding: 14px 16px 12px; }
+.top .name { font: 650 15px/1.2 var(--display); }
+.top .sub { font-size: 12px; color: var(--text-2); }
+.site { margin: 0 12px; padding: 12px 14px; background: var(--panel); border-radius: 12px; box-shadow: var(--shadow); }
+.site-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.site-head img { border-radius: 3px; }
+.site-head .host { font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.toggle-row { display: flex; align-items: center; gap: 12px; padding: 6px 0; }
+.toggle-row .label { flex: 1; font-size: 13px; }
+.toggle-row .label small { display: block; color: var(--text-2); font-size: 11.5px; margin-top: 1px; }
+.site p { margin: 2px 0 8px; font-size: 12.5px; color: var(--text-2); }
+.keys { margin: 12px; padding: 6px 14px; background: var(--panel); border-radius: 12px; box-shadow: var(--shadow); }
+.keys .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 5px 0; font-size: 12.5px; }
+.keys .row + .row { border-top: 0.5px solid var(--hairline); }
+.keys .what { color: var(--text-2); }
+.keys .k { display: inline-flex; gap: 3px; }
+.keys kbd { min-width: 20px; height: 20px; font-size: 11px; }
+.foot { display: flex; align-items: center; gap: 14px; padding: 0 16px 14px; font-size: 13px; }
+.foot .muted { margin-left: auto; }

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <title>‘Quick Look’ for LINKS</title>
+  <link rel="stylesheet" href="../shared/ui.css">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <img src="../icons/icon48.png" alt="" width="30" height="30">
+    <div>
+      <div class="name">‘Quick Look’ for LINKS</div>
+      <div class="sub" id="mode-line">Quick Look for links</div>
+    </div>
+  </header>
+
+  <section class="site" id="site">
+    <div class="site-head">
+      <img id="site-icon" alt="" width="16" height="16">
+      <span id="site-host" class="host">This page</span>
+      <span id="site-pill" class="pill"></span>
+    </div>
+    <div id="site-body"></div>
+  </section>
+
+  <section class="keys" aria-label="Keyboard shortcuts">
+    <div class="row"><span class="what">Preview the link under the pointer</span><span class="k" id="k-trigger"><kbd>Space</kbd></span></div>
+    <div class="row"><span class="what">Preview where Space is taken (YouTube…)</span><span class="k"><kbd>⇧</kbd><kbd>Space</kbd></span></div>
+    <div class="row"><span class="what">Next or previous link</span><span class="k"><kbd>←</kbd><kbd>→</kbd></span></div>
+    <div class="row"><span class="what">Full window</span><span class="k"><kbd id="k-alt">⌥</kbd><kbd>Space</kbd></span></div>
+    <div class="row"><span class="what">Open in a new tab</span><span class="k"><kbd id="k-enter">↩</kbd></span></div>
+    <div class="row"><span class="what">Open in the background</span><span class="k"><kbd id="k-mod">⌘</kbd><kbd id="k-enter2">↩</kbd></span></div>
+    <div class="row"><span class="what">Switch Live / Reader / Summary</span><span class="k"><kbd>R</kbd></span></div>
+    <div class="row"><span class="what">Close</span><span class="k"><kbd>Esc</kbd></span></div>
+  </section>
+
+  <footer class="foot">
+    <a href="#" id="open-settings">Settings</a>
+    <a href="#" id="open-welcome">Try it</a>
+    <span class="muted tiny" id="version"></span>
+  </footer>
+
+  <script src="../shared/settings.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
