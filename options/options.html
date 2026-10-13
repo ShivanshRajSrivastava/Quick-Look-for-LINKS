@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>‘Quick Look’ for LINKS Settings</title>
+  <link rel="icon" href="../icons/icon32.png">
+  <link rel="stylesheet" href="../shared/ui.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="side">
+      <div class="brand"><img src="../icons/icon128.png" alt="" width="40" height="40"><div><b>‘Quick Look’ for LINKS</b><span id="ver"></span></div></div>
+      <nav>
+        <a href="#access">Access</a>
+        <a href="#keyboard">Keyboard</a>
+        <a href="#previews">Previews</a>
+        <a href="#appearance">Appearance</a>
+        <a href="#privacy">Privacy &amp; safety</a>
+        <a href="#sites">Sites</a>
+        <a href="#receipts">Your stats</a>
+        <a href="#about">About</a>
+      </nav>
+    </aside>
+
+    <main>
+      <h1>Settings</h1>
+      <p class="lede">Hover any link and press <kbd id="lede-key">Space</kbd>. Changes save as you make them.</p>
+
+      <section id="access" class="group">
+        <h2>Access</h2>
+        <div class="box">
+          <div class="choice-grid">
+            <label class="choice">
+              <input type="radio" name="access" value="all">
+              <span class="choice-body">
+                <b>On every website</b>
+                <span>Previews work everywhere, straight away. Chrome describes this as “read and change all your data on all websites”, because fetching a preview of any link needs access to any site.</span>
+              </span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="access" value="sites">
+              <span class="choice-body">
+                <b>Only sites I approve</b>
+                <span>More private, a little more friction. Turn it on per site from the toolbar button, and approve each new site a preview needs to load from.</span>
+              </span>
+            </label>
+          </div>
+          <div id="access-status" class="status-line"></div>
+          <div id="granted-wrap" class="list-wrap hidden">
+            <div class="list-head"><b>Space previews links on</b><span class="muted tiny">Turn sites on from the toolbar button</span></div>
+            <ul id="enabled" class="chips"></ul>
+            <div class="list-head"><b>Previews can load from</b><span class="muted tiny">Sites you approved inside a preview</span></div>
+            <ul id="granted" class="chips"></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="keyboard" class="group">
+        <h2>Keyboard</h2>
+        <div class="box">
+          <div class="row">
+            <div class="label"><b>Preview shortcut</b><span>Space matches Quick Look on the Mac. Ctrl + Space matches PowerToys Peek on Windows.</span></div>
+            <div class="seg" role="radiogroup">
+              <label><input type="radio" name="trigger" value="space"><span>Space</span></label>
+              <label><input type="radio" name="trigger" value="ctrl-space"><span id="ctrl-space-label">Ctrl + Space</span></label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="label"><b>Arrow keys move through</b><span>“Similar links” stays inside the list you started in, such as search results or a thread, the way Finder stays in one folder.</span></div>
+            <div class="seg" role="radiogroup">
+              <label><input type="radio" name="arrows" value="similar"><span>Similar links</span></label>
+              <label><input type="radio" name="arrows" value="all"><span>All links</span></label>
+            </div>
+          </div>
+          <div class="keys-table" id="keys-table"></div>
+        </div>
+      </section>
+
+      <section id="previews" class="group">
+        <h2>Previews</h2>
+        <div class="box">
+          <div class="row">
+            <div class="label"><b>Show first</b><span>Live shows the real page. Reader shows clean article text, which is faster and quieter. Press R in a preview to switch.</span></div>
+            <div class="seg" role="radiogroup">
+              <label><input type="radio" name="preferMode" value="live"><span>Live page</span></label>
+              <label><input type="radio" name="preferMode" value="reader"><span>Reader</span></label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="label"><b>Show live pages even when a site blocks embedding</b><span>Sites like XDA, Apple and GitHub tell browsers not to show them inside other pages. For its own preview, which is sandboxed and logged out, the extension sets that aside so you see the real page. Turn off to respect it and get Reader instead.</span></div>
+            <span class="switch"><input type="checkbox" name="forceLive" role="switch"></span>
+          </div>
+          <div class="row">
+            <div class="label"><b>Panel size</b><span>You can also drag the panel’s corner. It remembers the size.</span></div>
+            <div class="seg" role="radiogroup">
+              <label><input type="radio" name="size" value="standard"><span>Standard</span></label>
+              <label><input type="radio" name="size" value="large"><span>Large</span></label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="label"><b>Reader font</b></div>
+            <div class="seg" role="radiogroup">
+              <label><input type="radio" name="readerFont" value="system"><span>System</span></label>
+              <label><input type="radio" name="readerFont" value="serif"><span>Serif</span></label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="label"><b>Give up on slow pages after</b><span>A spinner shows, then it stops waiting.</span></div>
+            <select name="timeoutSec">
+              <option value="5">5 seconds</option>
+              <option value="8">8 seconds</option>
+              <option value="15">15 seconds</option>
+              <option value="30">30 seconds</option>
+            </select>
+          </div>
+          <div class="row">
+            <div class="label"><b>Close when clicking outside the preview</b><span>The click that closes it won’t also follow a link.</span></div>
+            <span class="switch"><input type="checkbox" name="closeOnOutsideClick" role="switch"></span>
+          </div>
+        </div>
+      </section>
+
+      <section id="appearance" class="group">
+        <h2>Appearance</h2>
+        <div class="box">
+          <div class="row">
+            <div class="label"><b>Theme</b><span>Matches your Mac’s Light or Dark appearance by default.</span></div>
+            <div class="seg" role="radiogroup">
+              <label><input type="radio" name="theme" value="system"><span>Auto</span></label>
+              <label><input type="radio" name="theme" value="light"><span>Light</span></label>
+              <label><input type="radio" name="theme" value="dark"><span>Dark</span></label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="label"><b>“Space to preview” hint</b><span>Appears the first few times you hover a link, then never again.</span></div>
+            <div class="inline">
+              <button class="btn small" id="reset-hints">Show hints again</button>
+              <span class="switch"><input type="checkbox" name="hoverHint" role="switch"></span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="label"><b>Motion</b><span id="motion-status">Animations follow your system’s Reduce Motion setting.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="privacy" class="group">
+        <h2>Privacy &amp; safety</h2>
+        <div class="box">
+          <ul class="facts">
+            <li><b>Nothing loads on hover.</b> A page is fetched only after you press the shortcut.</li>
+            <li><b>Logged out by default.</b> Previews load without your cookies, in a frame with its own empty cookie jar, so a preview can’t act on your accounts.</li>
+            <li><b>Sealed off.</b> Previews render inside a locked-down extension frame. Their scripts can’t touch the page you’re on, and a previewed page can’t redirect your tab.</li>
+            <li><b>No servers, no analytics.</b> The only request is the one to the link you chose. Your stats below never leave this computer.</li>
+          </ul>
+          <div class="row">
+            <div class="label"><b>Refuse risky links</b><span>Skips links that look like sign-out, unsubscribe, delete or one-time sign-in links, which some sites act on with a single visit. You can still choose “Preview Anyway”.</span></div>
+            <span class="switch"><input type="checkbox" name="refuseRisky" role="switch"></span>
+          </div>
+          <div class="row">
+            <div class="label"><b>Explain buttons</b><span>When Space lands on a button or a script link with no page behind it, a short note says why there’s nothing to preview, instead of scrolling. Buttons are never pressed.</span></div>
+            <span class="switch"><input type="checkbox" name="explainButtons" role="switch"></span>
+          </div>
+          <div class="list-wrap">
+            <div class="list-head"><b>Use my cookies for previews of</b><span class="muted tiny">Previews of these sites see you signed in</span></div>
+            <ul id="cookieSites" class="chips"></ul>
+            <form class="add" data-list="cookieSites"><input type="text" placeholder="example.com" aria-label="Add a site"><button class="btn small">Add</button></form>
+          </div>
+        </div>
+      </section>
+
+      <section id="sites" class="group">
+        <h2>Sites</h2>
+        <div class="box">
+          <div class="list-head" style="padding-top:12px"><b>Space keeps its normal job on</b><span class="muted tiny">Here Space plays videos, scrolls feeds or types. Use ⇧Space to preview.</span></div>
+          <ul id="disabledSites" class="chips"></ul>
+          <form class="add" data-list="disabledSites"><input type="text" placeholder="example.com" aria-label="Add a site"><button class="btn small">Add</button><button type="button" class="btn small" id="reset-disabled">Restore defaults</button></form>
+          <div class="list-wrap">
+            <div class="list-head"><b>Completely off on</b><span class="muted tiny">No previews, no hints, not even ⇧Space</span></div>
+            <ul id="offSites" class="chips"></ul>
+            <form class="add" data-list="offSites"><input type="text" placeholder="example.com" aria-label="Add a site"><button class="btn small">Add</button></form>
+          </div>
+          <p class="muted tiny">Everywhere else it still steps aside in text boxes, editors, focused buttons, video players and games.</p>
+        </div>
+      </section>
+
+      <section id="receipts" class="group">
+        <h2>Your stats</h2>
+        <div class="box">
+          <p class="muted tiny">Counted on this computer only. Handy if you’re curious how you use it.</p>
+          <div class="stats" id="stats"></div>
+          <div class="inline end"><button class="btn small" id="reset-stats">Reset stats</button></div>
+        </div>
+      </section>
+
+      <section id="about" class="group">
+        <h2>About</h2>
+        <div class="box about">
+          <p>‘Quick Look’ for LINKS brings Finder’s Quick Look to links: hover, press Space, flip through with the arrow keys. It works in Chrome, Arc, Brave, Edge and other Chromium browsers.</p>
+          <p class="muted tiny">Reader previews use Mozilla’s <a href="https://github.com/mozilla/readability" target="_blank" rel="noopener">Readability</a> (Apache License 2.0). Quick Look is a trademark of Apple Inc. ‘Quick Look’ for LINKS is an independent project and isn’t affiliated with or endorsed by Apple.</p>
+          <p><a href="../welcome/welcome.html">Open the welcome page</a></p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="saved" id="saved" role="status">Saved</div>
+  <script src="../shared/settings.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
